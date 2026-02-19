@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding-top: 24px;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        h1 { margin: 0; }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #b1 { display: inline-block; transform-origin: center center; transition: transform 0.12s ease; }
+    </style>
+    <script>
+        window.onload = function() {
+            var b1 = document.getElementById("b1");
+            var b2 = document.getElementById("b2");
+            // make clicks on b1 show a message
+            b1.onclick = function() {
+                alert("YAY SEE U LATER");
+            }
+
+            // use transform scale for smooth, layout-stable growth
+            var scale = 1;
+            var step = 0.15; // how much to grow per click
+            b1.style.transform = 'scale(' + scale + ')';
+            b1.style.transition = 'transform 0.12s ease';
+
+            b2.onclick = function() {
+                scale += step;
+                b1.style.transform = 'scale(' + scale + ')';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>几点吃饭？</h1>
+    <div class="buttons">
+        <button id="b1">1130</button>
+        <button id="b2">1200</button>
+    </div>
+</body>
+</html>
